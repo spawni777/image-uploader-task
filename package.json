@@ -1,0 +1,18 @@
+{
+  "name": "image-uploader",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/spawni777/image-uploader-test.git",
+  "author": "Spawni <spawni888@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "18.x"
+  },
+  "scripts": {
+    "start": "yarn --cwd ./server/ start",
+    "build": "yarn --cwd ./server/ build && yarn --cwd ./client/ build",
+    "server:dev": "yarn --cwd ./server/ start:dev",
+    "server:prod": "yarn --cwd ./server/ start:prod",
+    "client:dev": "yarn --cwd ./client/ dev"
+  }
+}
