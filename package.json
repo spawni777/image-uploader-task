@@ -9,6 +9,7 @@
     "node": "18.x"
   },
   "scripts": {
+    "deps": "yarn --cwd ./server/ install  && yarn --cwd ./client/ install",
     "start": "yarn --cwd ./server/ start",
     "build": "yarn --cwd ./server/ build && yarn --cwd ./client/ build",
     "server:dev": "yarn --cwd ./server/ start:dev",
