@@ -3,12 +3,12 @@ import ButtonIcon from '@/components/ButtonIcon';
 
 type Props = {
   icon: 'upload' | 'check' | 'cross';
-  iconColor: `#${string}`;
+  iconColor?: `#${string}`;
   text: string;
   onClick: () => void;
 }
 
-const UIButton = ({icon, text, iconColor, onClick}: Props) => {
+const UIButton = ({icon, text, iconColor = '#000', onClick}: Props) => {
   return (
     <button className={styles.button} onClick={onClick}>
       <div className={styles.icon}>

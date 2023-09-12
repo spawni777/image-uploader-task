@@ -4,10 +4,11 @@ import UIButton from '@/components/ui/UIButton';
 import { useDispatch, useSelector } from 'react-redux';
 import { IRootState } from '@/types/storage';
 import { setModalIsOpen } from '@/store/modal.store';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { CSSTransition } from "react-transition-group";
 
-type Props = {}
-
-const Header = ({}: Props) => {
+const Header = () => {
   const imagesFetched = useSelector<IRootState, boolean>(state => state.images.statuses.fetched);
   const imagesTotalNumber = useSelector<IRootState, number>(state => state.images.totalNumber);
 
@@ -26,14 +27,28 @@ const Header = ({}: Props) => {
               <img src="/logo.png" alt="logo"/>
             </div>
             <div className={styles.headerInfo}>
+              <CSSTransition
+                in={!imagesFetched}
+                timeout={200}
+                classNames="fade"
+                unmountOnExit
+              >
+                <div className={styles.skeleton}>
+                  <Skeleton
+                    height={16}
+                    width={150}
+                  />
+                </div>
+              </CSSTransition>
               {imagesTotalNumber} images stored in keeper
             </div>
           </div>
-          <div className={styles.headerBtn}>
+          <div
+            className={`${styles.headerBtn} ${imagesFetched ? styles.headerBtnFetched : ''}`}
+          >
             <UIButton
               icon="upload"
               text="Upload image"
-              iconColor={imagesFetched ? '#FFF' : '#000'}
               onClick={showUploadModal}
             />
           </div>

@@ -18,10 +18,26 @@
         font-weight: 400;
         line-height: 125%;
         letter-spacing: -0.375px;
+        position: relative;
+
+        .skeleton {
+          z-index: 2;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
       }
     }
 
-    .headerBtn {}
+    .headerBtn {
+      transition: opacity 0.4s;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .headerBtnFetched {
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
 }
 
